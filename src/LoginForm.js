@@ -3,8 +3,11 @@ import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import $ from "jquery";
 import {} from "jquery.cookie";
+
+
 axios.defaults.withCredentials = true;
 const headers = { withCredentials: true };
+
 
 class LoginForm extends Component {
  
@@ -15,10 +18,12 @@ class LoginForm extends Component {
     const joinPw = this.joinPw.value;
     const regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
     const regExp2 = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
+
     if (joinEmail === "" || joinEmail === undefined) {
       alert("이메일 주소를 입력해주세요.");
       this.joinEmail.focus();
       return;
+
     } else if (
       joinEmail.match(regExp) === null ||
       joinEmail.match(regExp) === undefined
@@ -27,14 +32,17 @@ class LoginForm extends Component {
       this.joinEmail.value = "";
       this.joinEmail.focus();
       return;
+
     } else if (joinName === "" || joinName === undefined) {
       alert("이름을 입력해주세요.");
       this.joinName.focus();
       return;
+
     } else if (joinPw === "" || joinPw === undefined) {
       alert("비밀번호를 입력해주세요.");
       this.joinPw.focus();
       return;
+
     } else if (
       joinPw.match(regExp2) === null ||
       joinPw.match(regExp2) === undefined
@@ -81,6 +89,7 @@ class LoginForm extends Component {
       alert("이메일 주소를 입력해주세요.");
       this.loginEmail.focus();
       return;
+
     } else if (loginPw === "" || loginPw === undefined) {
       alert("비밀번호를 입력해주세요.");
       this.loginPw.focus();
